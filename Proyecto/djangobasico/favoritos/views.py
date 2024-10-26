@@ -27,3 +27,7 @@ def crear_favorito(request):
         'form': form
     }
     return render(request, 'favoritos/crear.html', context)
+
+def borrar_favorito(request, pk):
+    Favoritos.objects.get(pk=pk).delete()
+    return index_favoritos(request)
