@@ -6,4 +6,5 @@ urlpatterns = [
     path('crear/', crear_favorito, name='crear'),
     path('borrar/<int:pk>', borrar_favorito, name="borrar"),
     path('detalle/<int:pk>', detalle_favorito, name="detalle"),
+    path('actualizar/<int:pk>', actualizar_favorito, name="actualizar"),
 ]

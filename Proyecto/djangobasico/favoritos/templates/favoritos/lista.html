@@ -17,6 +17,7 @@
             <th scope="col">URL</th>
             <th scope="col"></th>
             <th scope="col"></th>
+            <th scope="col"></th>
         </tr>
         </thead>
         <tbody>
@@ -27,6 +28,7 @@
                 <td>{{ favorito.url }}</td>
                 <td> <a href="{% url 'favoritos:borrar' favorito.pk %}">Borrar</a> </td>
                 <td> <a href="{% url 'favoritos:detalle' favorito.pk %}">Detalle</a> </td>
+                <td> <a href="{% url 'favoritos:actualizar' favorito.pk %}">Actualizar</a> </td>
                 </tr>
             {% endfor %}
         </tbody>
