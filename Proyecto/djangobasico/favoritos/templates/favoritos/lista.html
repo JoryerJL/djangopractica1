@@ -8,12 +8,14 @@
   </head>
   <body>
     <h1>Lista Favoritos</h1>
+    <a class="btn btn-outline-warning" href="{% url 'favoritos:crear' %}" role="button">Nuevo</a>
     <table class="table table-hover">
         <thead>
         <tr>
             <th scope="col">ID</th>
             <th scope="col">Nombre</th>
             <th scope="col">URL</th>
+            <th scope="col"></th>
             <th scope="col"></th>
         </tr>
         </thead>
@@ -24,6 +26,7 @@
                 <td>{{ favorito.nombre }}</td>
                 <td>{{ favorito.url }}</td>
                 <td> <a href="{% url 'favoritos:borrar' favorito.pk %}">Borrar</a> </td>
+                <td> <a href="{% url 'favoritos:detalle' favorito.pk %}">Detalle</a> </td>
                 </tr>
             {% endfor %}
         </tbody>

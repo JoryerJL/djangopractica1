@@ -1,7 +1,7 @@
 from distutils.command.config import config
 from lib2to3.fixes.fix_input import context
 
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .forms import *
 
 # Create your views here.
@@ -28,6 +28,13 @@ def crear_favorito(request):
     }
     return render(request, 'favoritos/crear.html', context)
 
+def detalle_favorito(request, pk):
+    favorito= Favoritos.objects.get(pk=pk)
+    context = {
+        'favorito': favorito
+    }
+    return render(request, 'favoritos/detalle.html', context )
+
 def borrar_favorito(request, pk):
     Favoritos.objects.get(pk=pk).delete()
-    return index_favoritos(request)
+    return redirect('favoritos:index')
