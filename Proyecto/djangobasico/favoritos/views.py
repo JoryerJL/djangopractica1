@@ -1,10 +1,16 @@
 from distutils.command.config import config
+from lib2to3.fixes.fix_input import context
+
 from django.shortcuts import render
 from .forms import *
 
 # Create your views here.
 def index_favoritos(request):
-    return render(request, 'index.html')
+    favoritos_lista = Favoritos.objects.all()
+    context = {
+        'favoritos_lista': favoritos_lista
+    }
+    return render(request, 'favoritos/lista.html', context)
 
 
 def crear_favorito(request):
